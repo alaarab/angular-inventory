@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="exampleInputEmail1">Barcode</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter barcode">
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Serial Number</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter serial number">
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+
+<div class="inventory-item" *ngFor="let inventory of inventories">
+  {{ inventory.barcode }}
+</div>

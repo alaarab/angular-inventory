@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Client } from '@microsoft/microsoft-graph-client';
 
 import { AuthService } from '../auth/auth.service';
-import { Event } from '../../components/event/event';
+import { Event } from '../../classes/event';
 import { AlertsService } from '../alerts/alerts.service';
 
 @Injectable({

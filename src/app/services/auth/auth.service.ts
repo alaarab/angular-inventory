@@ -4,7 +4,7 @@ import { Client } from '@microsoft/microsoft-graph-client';
 
 import { AlertsService } from '../alerts/alerts.service';
 import { OAuthSettings } from '../../../oauth';
-import { User } from '../../components/user/user';
+import { User } from '../../classes/user';
 
 @Injectable({
   providedIn: 'root'

@@ -1,13 +1,13 @@
 <div class="form-group">
   <label for="exampleInputEmail1">Barcode</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter barcode">
+  <input type="email" class="form-control" placeholder="Enter barcode" [(ngModel)]="inventoryItemBarcode" (keyup.enter)="addInventoryItem()">
 </div>
 <div class="form-group">
   <label for="exampleInputEmail1">Serial Number</label>
-  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter serial number">
+  <input type="email" class="form-control" placeholder="Enter serial number" [(ngModel)]="inventoryItemSerial" (keyup.enter)="addInventoryItem()">
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary" (click)="addInventoryItem()">Submit</button>
 
-<div class="inventory-item" *ngFor="let inventory of inventories">
-  {{ inventory.barcode }}
+<div class="inventory-item" *ngFor="let inventoryItem of inventoryItems">
+  {{ inventoryItem.barcode }} <div class="remove-item" (click)="deleteInventoryItem(inventoryItem.id)">&times;</div>
 </div>

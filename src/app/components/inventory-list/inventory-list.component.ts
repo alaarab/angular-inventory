@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryItem } from '../../classes/inventory-item'
 
 @Component({
   selector: 'inventory-list',
@@ -6,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventory-list.component.scss']
 })
 export class InventoryListComponent implements OnInit {
-  inventories: object[];
+  inventoryItems: InventoryItem[];
+  inventoryItemBarcode: string;
+  inventoryItemSerial: string;
+  idForInventoryItem: number;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.inventories = [
+    this.inventoryItems = [
       {
         'id': 1,
         'barcode': "ABC1234",
@@ -28,6 +32,30 @@ export class InventoryListComponent implements OnInit {
         'serial': "2mc7a",
       }
     ]
+  }
+
+  addInventoryItem(): void {
+    this.idForInventoryItem = 4;
+    if (this.inventoryItemBarcode.trim().length == 0){
+      return;
+    }
+    if (this.inventoryItemSerial.trim().length == 0){
+      return;
+    }
+
+    this.inventoryItems.push({
+      id: this.idForInventoryItem, 
+      barcode: this.inventoryItemBarcode,
+      serial: this.inventoryItemSerial
+    })
+
+    this.inventoryItemBarcode = '';
+    this.inventoryItemSerial = '';
+    this.idForInventoryItem++;
+  }
+
+  deleteInventoryItem(id: number): void {
+    this.inventoryItems = this.inventoryItems.filter(inventoryItem => inventoryItem.id != id)
   }
 
 }

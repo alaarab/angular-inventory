@@ -13,7 +13,7 @@ import { InventoryListComponent } from './components/inventory-list/inventory-li
 import { HomeComponent } from './components/home/home.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { OAuthSettings } from '../oauth';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [

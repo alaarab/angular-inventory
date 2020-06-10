@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment-timezone';
 
-import { GraphService } from '../graph.service';
-import { Event, DateTimeTimeZone } from '../event';
-import { AlertsService } from '../alerts.service';
+import { GraphService } from '../../services/graph/graph.service';
+import { Event, DateTimeTimeZone } from '../event/event';
+import { AlertsService } from '../../services/alerts/alerts.service';
 
 @Component({
   selector: 'app-calendar',

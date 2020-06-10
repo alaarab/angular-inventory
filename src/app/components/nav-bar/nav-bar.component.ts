@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../../auth.service';
 import { User } from '../../user';
 
 @Component({
@@ -12,16 +13,18 @@ export class NavBarComponent implements OnInit {
   // Should the collapsed nav show?
   showNav: boolean;
   // Is a user logged in?
-  authenticated: boolean;
+  get authenticated(): boolean {
+    return this.authService.authenticated;
+  }
   // The user
-  user: User;
+  get user(): User {
+    return this.authService.user;
+  }
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.showNav = false;
-    this.authenticated = false;
-    this.user = null;
   }
 
   // Used by the Bootstrap navbar-toggler button to hide/show
@@ -30,19 +33,11 @@ export class NavBarComponent implements OnInit {
     this.showNav = !this.showNav;
   }
 
-  signIn(): void {
-    // Temporary
-    this.authenticated = true;
-    this.user = {
-      displayName: 'Adele Vance',
-      email: 'AdeleV@contoso.com',
-      avatar: null
-    };
+  async signIn(): Promise<void> {
+    await this.authService.signIn();
   }
 
   signOut(): void {
-    // Temporary
-    this.authenticated = false;
-    this.user = null;
+    this.authService.signOut();
   }
 }
